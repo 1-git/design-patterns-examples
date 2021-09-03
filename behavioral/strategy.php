@@ -31,7 +31,7 @@ class TextFileOpener implements OpenFileStrategyInterface
 ####### SOLUTION 1 - STRATEGY DETECT OUTSIDE OF CLASS #####
 ###########################################################
 
-class Content1
+class Context1
 {
     protected OpenFileStrategyInterface $openFileStrategy;
 
@@ -47,18 +47,18 @@ class Content1
 }
 
 $filename = 'one_file.csv';
-$content = (new Content1(new CsvFileOpener()))->getInfo($filename);
-var_dump($content);
+$context = (new Context1(new CsvFileOpener()))->getInfo($filename);
+var_dump($context);
 
 $filename = 'one_file.txt';
-$content = (new Content1(new TextFileOpener()))->getInfo($filename);
-var_dump($content);
+$context = (new Context1(new TextFileOpener()))->getInfo($filename);
+var_dump($context);
 
 ###########################################################
 ##### SOLUTION 2 - STRATEGY DETECT INSIDE CONTEXT FILE ####
 ###########################################################
 
-class Content2
+class Context2
 {
     protected OpenFileStrategyInterface $openFileStrategy;
 
@@ -69,6 +69,8 @@ class Content2
             $fileOpener = new CsvFileOpener();
         } elseif ($extension === 'txt') {
             $fileOpener = new TextFileOpener();
+        } else {
+            throw new Exception();
         }
 
         return $fileOpener->getFileContent($filename);
@@ -76,18 +78,18 @@ class Content2
 }
 
 $filename = 'one_file.csv';
-$content = (new Content2())->getInfo($filename);
-var_dump($content);
+$context = (new Context2())->getInfo($filename);
+var_dump($context);
 
 $filename = 'one_file.txt';
-$content = (new Content2())->getInfo($filename);
-var_dump($content);
+$context = (new Context2())->getInfo($filename);
+var_dump($context);
 
 ###########################################################
 ####### SOLUTION 3 - STRATEGY DETECT IN SEPARATE FILE #####
 ###########################################################
 
-class Content3
+class Context3
 {
     public function getInfo(string $filename): string
     {
@@ -114,9 +116,9 @@ class OpenerFileRouter
 }
 
 $filename = 'one_file.csv';
-$content = (new Content3())->getInfo($filename);
-var_dump($content);
+$context = (new Context3())->getInfo($filename);
+var_dump($context);
 
 $filename = 'one_file.txt';
-$content = (new Content3())->getInfo($filename);
-var_dump($content);
+$context = (new Context3())->getInfo($filename);
+var_dump($context);
