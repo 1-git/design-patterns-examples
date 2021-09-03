@@ -2,13 +2,10 @@
 
 namespace DesignPattern\Behavioral\Strategy;
 
-use ArrayIterator;
-use Iterator;
-use IteratorAggregate;
-
 interface OpenFileStrategyInterface {
     public function getFileContent(): string;
 }
+
 class CsvFileOpener implements OpenFileStrategyInterface
 {
     public function getFileContent(): string
