@@ -50,6 +50,7 @@ class Context1
             throw new Exception();
         }
 
+//        $this->state === 'info';
         return $messageHandler->getMessage();
     }
 }
@@ -80,6 +81,7 @@ class Context2
     public function getMessage(): string
     {
         $handler = (new MessageDecisionMaker())->getHandler($this->state);
+//        $this->state === 'info';
         return $handler->getMessage();
     }
 }
