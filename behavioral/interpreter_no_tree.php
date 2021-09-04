@@ -2,7 +2,6 @@
 
 namespace DesignPattern\Behavioral\Interpreter;
 
-use DesignPattern\Behavioral\Command\ClassicIterator;
 use Exception;
 
 ###############################################

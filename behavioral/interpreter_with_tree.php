@@ -3,9 +3,6 @@
 
 namespace DesignPattern\Behavioral\Interpreter;
 
-use DesignPattern\Behavioral\Command\ClassicIterator;
-use Exception;
-
 interface Expression
 {
     public function interpret(array $values): int;
