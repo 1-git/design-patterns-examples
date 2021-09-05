@@ -4,7 +4,7 @@ namespace DesignPattern\Creational\Singleton;
 
 use Exception;
 
-class Singleton {
+class Connection {
     protected static $instance;
 
     protected function __construct()
@@ -25,7 +25,7 @@ class Singleton {
         throw new Exception();
     }
 
-    public static function getInstance(): Singleton
+    public static function getInstance(): Connection
     {
         if (!self::$instance) {
             self::$instance = new self();
@@ -35,5 +35,5 @@ class Singleton {
     }
 }
 
-$r = Singleton::getInstance();
+$r = Connection::getInstance();
 var_dump($r);
