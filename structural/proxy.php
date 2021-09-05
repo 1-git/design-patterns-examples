@@ -2,7 +2,11 @@
 
 namespace DesignPattern\Structural\Proxy;
 
-class Example
+interface Runnable {
+    public function run();
+}
+
+class Example implements Runnable
 {
     public function run()
     {
@@ -10,9 +14,9 @@ class Example
     }
 }
 
-class Proxy
+class Proxy implements Runnable
 {
-    public function execute()
+    public function run()
     {
         $result = (new Example)->run();
         $this->log($result);
