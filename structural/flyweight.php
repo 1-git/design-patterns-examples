@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignPattern\Behavioral\Flyweight;
+namespace DesignPattern\Structural\Flyweight;
 
 class Player
 {

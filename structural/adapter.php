@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignPattern\Behavioral\Adapter;
+namespace DesignPattern\Structural\Adapter;
 
 interface Runnable {
     public function run();

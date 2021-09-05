@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignPattern\Behavioral\Decorator;
+namespace DesignPattern\Structural\Decorator;
 
 class Example
 {

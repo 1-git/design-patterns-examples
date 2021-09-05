@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignPattern\Behavioral\Facade;
+namespace DesignPattern\Structural\Facade;
 
 class ModuleA
 {

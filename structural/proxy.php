@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignPattern\Behavioral\Proxy;
+namespace DesignPattern\Structural\Proxy;
 
 class Example
 {
