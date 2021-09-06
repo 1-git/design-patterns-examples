@@ -2,26 +2,42 @@
 
 namespace DesignPattern\Creational\FactoryMethod;
 
-class TextField {
+interface FieldValue
+{
+    public function getValue();
 }
 
-class CheckboxField {
-}
-
-class FieldFactory {
-    const TEXT_TYPE = 'text';
-    const CHECKBOX_TYPE = 'checkbox';
-
-    protected array $map = [
-        self::TEXT_TYPE => TextField::class,
-        self::CHECKBOX_TYPE => CheckboxField::class,
-    ];
-    public function getField(string $type)
+class TextField implements FieldValue
+{
+    public function getValue()
     {
-        return new $this->map[$type];
+        return 111;
     }
 }
 
-$factory = new FieldFactory();
-$textField = $factory->getField(FieldFactory::TEXT_TYPE);
-var_dump($textField);
+class CheckboxField implements FieldValue
+{
+    public function getValue()
+    {
+        return 222;
+    }
+}
+
+class FieldFactory
+{
+    const TEXT_TYPE = 'text';
+    const CHECKBOX_TYPE = 'checkbox';
+
+    protected static array $map = [
+        self::TEXT_TYPE => TextField::class,
+        self::CHECKBOX_TYPE => CheckboxField::class,
+    ];
+
+    public static function getField(string $type): FieldValue
+    {
+        return new self::$map[$type];
+    }
+}
+
+$textField = FieldFactory::getField(FieldFactory::TEXT_TYPE);
+var_dump($textField->getValue());
